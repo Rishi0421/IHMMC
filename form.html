@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>IHMMC 2025</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+
+  <!-- Favicons -->
+  <!-- <link href="assets/img/favicon.png" rel="icon"> -->
+  <!-- <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon"> -->
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- jquary for counter -->
+
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+
+  <!-- Main CSS File -->
+  <link href="assets/css/form.css" rel="stylesheet">
+
+</head>
+
+<body class="index-page">
+
+  <header id="header" class="header d-flex align-items-center sticky-top">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center">
+
+      <a href="index.html" class="logo d-flex align-items-center me-auto">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <!-- <img src="assets/img/logo.png" alt=""> -->
+        <h1 class="sitename">IHMMC</h1>
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="#hero" class="active">Home</a></li>
+          <li class="dropdown"><a href="#about"><span>About</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+            <ul>
+              <li><a href="team.html">Team</a></li>
+              </li>
+            </ul>
+          </li>
+          <li><a href="#organizer">Organizers</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#sponsors">Sponsors</a></li>
+          <li><a href="#rules">Rules</a></li>
+          <!-- <li><a href="contact.html">Contact</a></li> -->
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+
+      <!-- <a class="btn-getstarted" href="about.html">Register</a> -->
+
+    </div>
+  </header>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact section light-background">
+
+    <!-- Section Title -->
+    <div class="container section-title" data-aos="fade-up">
+      <h2>Contact</h2>
+      <p>Contact</p>
+    </div><!-- End Section Title -->
+
+    <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+      <div class="row g-4 g-lg-5">
+        <div class="col-lg-5">
+          <div class="info-box" data-aos="fade-up" data-aos-delay="200">
+            <h3>Contact Info</h3>
+            <!-- <p>Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Vestibulum ante ipsum primis.</p> -->
+
+            <div class="info-item" data-aos="fade-up" data-aos-delay="300">
+              <div class="icon-box">
+                <i class="bi bi-geo-alt"></i>
+              </div>
+              <div class="content">
+                <h4>Our Location</h4>
+                <p>A108 Adam Street</p>
+                <p>New York, NY 535022</p>
+              </div>
+            </div>
+
+            <div class="info-item" data-aos="fade-up" data-aos-delay="400">
+              <div class="icon-box">
+                <i class="bi bi-telephone"></i>
+              </div>
+              <div class="content">
+                <h4>Phone Number</h4>
+                <p>+1 5589 55488 55</p>
+                <p>+1 6678 254445 41</p>
+              </div>
+            </div>
+
+            <div class="info-item" data-aos="fade-up" data-aos-delay="500">
+              <div class="icon-box">
+                <i class="bi bi-envelope"></i>
+              </div>
+              <div class="content">
+                <h4>Email Address</h4>
+                <p>info@example.com</p>
+                <p>contact@example.com</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-7">
+          <div class="contact-form" data-aos="fade-up" data-aos-delay="300">
+            <!-- <h3>Team Leader Details:</h3> -->
+            <!-- <p>Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Vestibulum ante ipsum primis.</p> -->
+
+            <form id="registration-form" action="submit_registration.php" method="POST">
+        
+                <!-- Basic Information -->
+                <fieldset>
+                    <legend>Team Leader Information</legend>
+                    <label for="full-name">Leader Full Name:</label>
+                    <input type="text" id="full-name" name="full_name" required>
+                    
+                    <label for="email">Leader Email Address:</label>
+                    <input type="email" id="email" name="email" required>
+                    
+                    <label for="phone">Leader Phone Number:</label>
+                    <input type="tel" id="phone" name="phone" required>
+
+                    <label for="full-name">College/University Name:</label>
+                    <input type="text" id="full-name" name="full_name" required>
+
+                    <label for="full-name">Department Name:</label>
+                    <input type="text" id="full-name" name="full_name" required>
+        
+                    <label for="year">Year of Study:</label>
+                    <select id="year" name="year" required>
+                        <option value="">Select Year</option>
+                        <option value="1">Year 1</option>
+                        <option value="2">Year 2</option>
+                        <option value="3">Year 3</option>
+                        <option value="4">Year 4</option>
+                    </select>
+                </fieldset>
+        
+                <!-- Team Information -->
+                <fieldset>
+                    <legend>Team Information</legend>
+                    <label for="team-name">Team Name:</label>
+                    <input type="text" id="team-name" name="team_name" required>
+        
+                    <label for="team-members">Number of Team Members:</label>
+                    <select id="team-members" name="team_members" onchange="updateTeamFields()" required>
+                        <option value="">Select Option</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                    </select>
+        
+                    <div id="team-member-details">
+                        <!-- Member fields will be inserted here based on the selected number -->
+                    </div>
+                </fieldset>
+        
+                <!-- Project Details -->
+                <fieldset>
+                    <legend>Project Details</legend>
+                    <label for="project-title">Project Title:</label>
+                    <input type="text" id="project-title" name="project_title" required>
+                    
+                    <label for="project-description">Project Description:</label>
+                    <textarea id="project-description" name="project_description" rows="4" required></textarea>
+                </fieldset>
+        
+                <!-- Payment Information -->
+                <fieldset>
+                    <legend>Payment Information</legend>
+                    <label for="registration-fee">Registration Fee:</label>
+                    <p>Amount: ₹<span id="registration-fee">100</span></p> <!-- Update as needed -->
+        
+                    <label for="payment-method">Payment Method:</label>
+                    <select id="payment-method" name="payment_method" required>
+                        <option value="">Select Option</option>
+                        <option value="upi">UPI (QR Code)</option>
+                        <option value="bank_transfer">Bank Transfer</option>
+                    </select>
+        
+                    <div id="upi-details">
+                        <label for="upi-id">UPI ID:</label>
+                        <input type="text" id="upi-id" name="upi_id">
+                        <p>Scan the QR Code below to make the payment:</p>
+                        <img src="assets/img/qrcode.png" alt="UPI QR Code" /> <!-- Update with your QR code -->
+                    </div>
+        
+                    <label id="payment-reference-label" style="display: none;" for="payment-reference">Payment Reference/Transaction ID:</label>
+                    <input id="payment-reference" style="display: none;" type="text" name="payment_reference">
+                </fieldset>
+        
+                <!-- Terms and Conditions -->
+                <fieldset>
+                    <legend>Terms and Conditions</legend>
+                    <label>
+                        <input type="checkbox" name="terms" required>
+                        I agree to the terms and conditions.
+                    </label>
+                </fieldset>
+        
+                <button type="submit">Complete Registration</button>
+            </form>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section><!-- /Contact Section -->
+
+
+  <footer id="footer" class="footer dark-background">
+
+    <div class="container footer-top">
+      <div class="row gy-4">
+        <div class="col-lg-4 col-md-6 footer-about">
+          <a href="index.html" class="logo d-flex align-items-center">
+            <span class="sitename">Sailor</span>
+          </a>
+          <div class="footer-contact pt-3">
+            <p>A108 Adam Street</p>
+            <p>New York, NY 535022</p>
+            <p class="mt-3"><strong>Phone:</strong> <span>+1 5589 55488 55</span></p>
+            <p><strong>Email:</strong> <span>info@example.com</span></p>
+          </div>
+          <div class="social-links d-flex mt-4">
+            <a href=""><i class="bi bi-twitter-x"></i></a>
+            <a href=""><i class="bi bi-facebook"></i></a>
+            <a href=""><i class="bi bi-instagram"></i></a>
+            <a href=""><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+
+        <div class="col-lg-2 col-md-3 footer-links">
+          <h4>Useful Links</h4>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About us</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Terms of service</a></li>
+            <li><a href="#">Privacy policy</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-4 col-md-12 footer-newsletter">
+          <h4>Our Newsletter</h4>
+          <p>Subscribe to our newsletter and receive the latest news about our products and services!</p>
+          <form action="forms/newsletter.php" method="post" class="php-email-form">
+            <div class="newsletter-form"><input type="email" name="email"><input type="submit" value="Subscribe"></div>
+            <div class="loading">Loading</div>
+            <div class="error-message"></div>
+            <div class="sent-message">Your subscription request has been sent. Thank you!</div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="container copyright text-center mt-4">
+      <p>© <span>Copyright</span> <strong class="px-1 sitename">Sailor</strong> <span>All Rights Reserved</span></p>
+      <div class="credits">
+        Designed by <a href="">Rishikesh Sharma</a>
+      </div>
+    </div>
+
+  </footer>
+  
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
+  <script src="jquery.counterup.min.js"></script>
+  <!-- Main JS File -->
+  <script src="assets/js/form.js"></script>
+  <script src="assets/js/tilt.jquery.js"></script>
+  <div class="circle_img"></div>
+  <script src="js/popper.min.js"></script>
+  <script src="js/owl.carousel.min.js"></script>
+  <script src="js/waypoints.min.js"></script>
+  <script src="js/scrollIt.js"></script>
+  <script src="js/wow.min.js"></script>
+
+</body>
+
+</html>
