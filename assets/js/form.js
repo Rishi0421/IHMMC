@@ -234,15 +234,15 @@ function updateTeamFields() {
     teamMemberDetails.innerHTML = '';
 
     if (numberOfMembers) {
-        for (let i = 1; i <= numberOfMembers; i++) {
-            teamMemberDetails.innerHTML += `
-                <label for="member${i}-name">Member ${i} Name:</label>
-                <input type="text" id="member${i}-name" name="member${i}_name" required>
-
-                <label for="member${i}-email">Member ${i} Email:</label>
-                <input type="email" id="member${i}-email" name="member${i}_email" required>
-            `;
-        }
+      for (let i = 0; i < numberOfMembers; i++) {
+        teamMemberDetails.innerHTML += `
+          <label for="member${i}-name">Member ${i + 1} Name:</label>
+          <input type="text" id="member${i}-name" name="team_members[${i}][name]" required>
+  
+          <label for="member${i}-email">Member ${i + 1} Email:</label>
+          <input type="email" id="member${i}-email" name="team_members[${i}][email]" required>
+        `;
+      }
     }
 }
 
@@ -264,4 +264,51 @@ document.getElementById('payment-method').addEventListener('change', function() 
         paymentReferenceLabel.style.display = 'none';
         paymentReferenceInput.style.display = 'none';
     }
+});
+
+const scriptURL = 'YOUR WEB APP URL HERE'; //// Add your Web App URL here google sheet
+const form = document.forms['google-sheet'];
+
+form.addEventListener('submit', async e => {
+  e.preventDefault();
+
+  const formData = new FormData(form);
+  const data = {};
+
+  formData.forEach((value, key) => {
+    if (key.startsWith('team_members')) {
+      const match = key.match(/team_members\[(\d+)\]\[(\w+)\]/);
+      if (match) {
+        const index = match[1];
+        const field = match[2];
+        if (!data.team_members) {
+          data.team_members = [];
+        }
+        if (!data.team_members[index]) {
+          data.team_members[index] = {};
+        }
+        data.team_members[index][field] = value;
+      }
+    } else {
+      data[key] = value;
+    }
+  });
+
+  data.team_members = JSON.stringify(data.team_members);
+  data.number_of_team_members = JSON.parse(data.team_members).length;
+  // Fetch the IP address
+  const ipResponse = await fetch('https://api.ipify.org?format=json');
+  const ipData = await ipResponse.json();
+  data.ip_address = ipData.ip;
+
+  fetch(scriptURL, {
+    method: 'POST',
+    body: new URLSearchParams(data),
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded'
+    }
+  })
+  .then(response => response.json())
+  .then(response => alert("Thanks for Contacting us..! We Will Contact You Soon..."))
+  .catch(error => console.error('Error!', error.message));
 });
