@@ -124,102 +124,101 @@
             <!-- <h3>Team Leader Details:</h3> -->
             <!-- <p>Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Vestibulum ante ipsum primis.</p> -->
 
-            <form id="registration-form" action="submit_registration.php" method="POST">
-        
-                <!-- Basic Information -->
-                <fieldset>
-                    <legend>Team Leader Information</legend>
-                    <label for="full-name">Leader Full Name:</label>
-                    <input type="text" id="full-name" name="full_name" required>
-                    
-                    <label for="email">Leader Email Address:</label>
-                    <input type="email" id="email" name="email" required>
-                    
-                    <label for="phone">Leader Phone Number:</label>
-                    <input type="tel" id="phone" name="phone" required>
-
-                    <label for="full-name">College/University Name:</label>
-                    <input type="text" id="full-name" name="full_name" required>
-
-                    <label for="full-name">Department Name:</label>
-                    <input type="text" id="full-name" name="full_name" required>
-        
-                    <label for="year">Year of Study:</label>
-                    <select id="year" name="year" required>
-                        <option value="">Select Year</option>
-                        <option value="1">Year 1</option>
-                        <option value="2">Year 2</option>
-                        <option value="3">Year 3</option>
-                        <option value="4">Year 4</option>
-                    </select>
-                </fieldset>
-        
-                <!-- Team Information -->
-                <fieldset>
-                    <legend>Team Information</legend>
-                    <label for="team-name">Team Name:</label>
-                    <input type="text" id="team-name" name="team_name" required>
-        
-                    <label for="team-members">Number of Team Members:</label>
-                    <select id="team-members" name="team_members" onchange="updateTeamFields()" required>
-                        <option value="">Select Option</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                    </select>
-        
-                    <div id="team-member-details">
-                        <!-- Member fields will be inserted here based on the selected number -->
-                    </div>
-                </fieldset>
-        
-                <!-- Project Details -->
-                <fieldset>
-                    <legend>Project Details</legend>
-                    <label for="project-title">Project Title:</label>
-                    <input type="text" id="project-title" name="project_title" required>
-                    
-                    <label for="project-description">Project Description:</label>
-                    <textarea id="project-description" name="project_description" rows="4" required></textarea>
-                </fieldset>
-        
-                <!-- Payment Information -->
-                <fieldset>
-                    <legend>Payment Information</legend>
-                    <label for="registration-fee">Registration Fee:</label>
-                    <p>Amount: ₹<span id="registration-fee">100</span></p> <!-- Update as needed -->
-        
-                    <label for="payment-method">Payment Method:</label>
-                    <select id="payment-method" name="payment_method" required>
-                        <option value="">Select Option</option>
-                        <option value="upi">UPI (QR Code)</option>
-                        <option value="bank_transfer">Bank Transfer</option>
-                    </select>
-        
-                    <div id="upi-details">
-                        <label for="upi-id">UPI ID:</label>
-                        <input type="text" id="upi-id" name="upi_id">
-                        <p>Scan the QR Code below to make the payment:</p>
-                        <img src="assets/img/qrcode.png" alt="UPI QR Code" /> <!-- Update with your QR code -->
-                    </div>
-        
-                    <label id="payment-reference-label" style="display: none;" for="payment-reference">Payment Reference/Transaction ID:</label>
-                    <input id="payment-reference" style="display: none;" type="text" name="payment_reference">
-                </fieldset>
-        
-                <!-- Terms and Conditions -->
-                <fieldset>
-                    <legend>Terms and Conditions</legend>
-                    <label>
-                        <input type="checkbox" name="terms" required>
-                        I agree to the terms and conditions.
-                    </label>
-                </fieldset>
-        
-                <button type="submit">Complete Registration</button>
-            </form>
+            <form id="registration-form" action="submit_registration.php" method="POST" name="google-sheet">
+              <!-- Basic Information -->
+              <fieldset>
+                  <legend>Team Leader Information</legend>
+                  <label for="full-name">Leader Full Name:</label>
+                  <input type="text" id="full-name" name="Lfull_name" required>
+                  
+                  <label for="email">Leader Email Address:</label>
+                  <input type="email" id="email" name="Lemail" required>
+                  
+                  <label for="phone">Leader Phone Number:</label>
+                  <input type="tel" id="phone" name="Lphone" required>
+          
+                  <label for="coll-name">College/University Name:</label>
+                  <input type="text" id="coll-name" name="coll_name" required>
+          
+                  <label for="dept-name">Department Name:</label>
+                  <input type="text" id="dept-name" name="dept_name" required>
+          
+                  <label for="year">Year of Study:</label>
+                  <select id="year" name="year" required>
+                      <option value="">Select Year</option>
+                      <option value="1">Year 1</option>
+                      <option value="2">Year 2</option>
+                      <option value="3">Year 3</option>
+                      <option value="4">Year 4</option>
+                  </select>
+              </fieldset>
+          
+              <!-- Team Information -->
+              <fieldset>
+                  <legend>Team Information</legend>
+                  <label for="team-name">Team Name:</label>
+                  <input type="text" id="team-name" name="team_name" required>
+          
+                  <label for="team-members">Number of Team Members:</label>
+                  <select id="team-members" name="team_members" onchange="updateTeamFields()" required>
+                      <option value="">Select Option</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                      <option value="6">6</option>
+                  </select>
+          
+                  <div id="team-member-details">
+                      <!-- Member fields will be inserted here based on the selected number -->
+                  </div>
+              </fieldset>
+          
+              <!-- Project Details -->
+              <fieldset>
+                  <legend>Project Details</legend>
+                  <label for="project-title">Project Title:</label>
+                  <input type="text" id="project-title" name="project_title" required>
+                  
+                  <label for="project-description">Project Description:</label>
+                  <textarea id="project-description" name="project_description" rows="4" required></textarea>
+              </fieldset>
+          
+              <!-- Payment Information -->
+              <fieldset>
+                  <legend>Payment Information</legend>
+                  <label for="registration-fee">Registration Fee:</label>
+                  <p>Amount: ₹<span id="registration-fee">100</span></p> <!-- Update as needed -->
+          
+                  <label for="payment-method">Payment Method:</label>
+                  <select id="payment-method" name="payment_method" required>
+                      <option value="">Select Option</option>
+                      <option value="upi">UPI (QR Code)</option>
+                      <option value="bank_transfer">Bank Transfer</option>
+                  </select>
+          
+                  <div id="upi-details">
+                      <label for="upi-id">UPI ID:</label>
+                      <input type="text" id="upi-id" name="upi_id">
+                      <p>Scan the QR Code below to make the payment:</p>
+                      <img src="assets/img/qrcode.png" alt="UPI QR Code" /> <!-- Update with your QR code -->
+                  </div>
+          
+                  <label id="payment-reference-label" style="display: none;" for="payment-reference">Payment Reference/Transaction ID:</label>
+                  <input id="payment-reference" style="display: none;" type="text" name="payment_reference">
+              </fieldset>
+          
+              <!-- Terms and Conditions -->
+              <fieldset>
+                  <legend>Terms and Conditions</legend>
+                  <label>
+                      <input type="checkbox" name="terms" required>
+                      I agree to the terms and conditions.
+                  </label>
+              </fieldset>
+          
+              <button type="submit">Complete Registration</button>
+          </form>
 
           </div>
         </div>
