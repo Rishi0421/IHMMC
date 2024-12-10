@@ -142,7 +142,7 @@ h6 {
 }
 
 .header .logo img {
-  max-height: 36px;
+  max-height: 70px;
   margin-right: 8px;
 }
 
@@ -933,8 +933,9 @@ section,
   font-size: 16px;
   padding-block: 8px;
   border-block: 1px solid;
-  color: #000000;
-  background-color: #fff;
+  color: #fff;
+  background-color: #1B1B1B;
+  border: none;
   user-select: none;
   overflow: hidden;
   display: flex;
@@ -954,12 +955,6 @@ section,
   animation: scroll 60s linear infinite;
 }
 
-/* @keyframes scroll {
-  to {
-    transform: translateX(-100%);
-  }
-} */
-
 @keyframes scroll {
   from {
     transform: translateX(0%);
@@ -968,8 +963,6 @@ section,
     transform: translateX(-50%);
   }
 }
-
-
 
 .stock-ticker .ihmmc {
   font-weight: bold;
@@ -1422,7 +1415,7 @@ section,
 .about .stats-row {
   position: relative;
   z-index: 1;
-  margin-top: 5rem;
+  margin-top: 3rem;
   background-color: #1B1B1B;
   border-radius: 20px;
   /* box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05); */
@@ -3038,4 +3031,120 @@ section,
   padding-left: 5px;
   color: color-mix(in srgb, var(--default-color), transparent 60%);
   font-size: 14px;
+}
+
+
+/*--------------------------------------------------------------
+# Features Section
+--------------------------------------------------------------*/
+.features .nav-tabs {
+  border: 0;
+  background-color: color-mix(in srgb, var(--default-color), transparent 96%);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50px;
+  padding: 6px;
+  width: auto;
+}
+
+.features .nav-item {
+  margin: 0;
+  padding: 0 5px 0 0;
+}
+
+.features .nav-item:last-child {
+  padding-right: 0;
+}
+
+.features .nav-link {
+  background-color: none;
+  color: var(--heading-color);
+  padding: 10px 30px;
+  transition: 0.3s;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  height: 100%;
+  border: 0;
+  margin: 0;
+}
+
+@media (max-width: 468px) {
+  .features .nav-link {
+    padding: 8px 20px;
+  }
+}
+
+.features .nav-link i {
+  padding-right: 15px;
+  font-size: 48px;
+}
+
+.features .nav-link h4 {
+  font-size: 14px;
+  font-weight: 500;
+  margin: 0;
+}
+
+.features .nav-link:hover {
+  border-color: color-mix(in srgb, var(--default-color), transparent 80%);
+}
+
+.features .nav-link:hover h4 {
+  color: var(--accent-color);
+}
+
+.features .nav-link.active {
+  background-color: var(--accent-color);
+  border-color: var(--accent-color);
+}
+
+.features .nav-link.active h4 {
+  color: var(--contrast-color);
+}
+
+.features .tab-content {
+  margin-top: 30px;
+}
+
+.features .tab-pane h3 {
+  color: var(--heading-color);
+  font-weight: 700;
+  font-size: 32px;
+  position: relative;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+}
+
+.features .tab-pane h3:after {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: var(--accent-color);
+  left: 0;
+  bottom: 0;
+}
+
+.features .tab-pane ul {
+  list-style: none;
+  padding: 0;
+}
+
+.features .tab-pane ul li {
+  padding-top: 10px;
+}
+
+.features .tab-pane ul i {
+  font-size: 20px;
+  padding-right: 4px;
+  color: var(--accent-color);
+}
+
+.features .tab-pane p:last-child {
+  margin-bottom: 0;
 }

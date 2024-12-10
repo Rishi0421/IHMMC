@@ -142,7 +142,7 @@
   }
   
   .header .logo img {
-    max-height: 36px;
+    max-height: 70px;
     margin-right: 8px;
   }
   
@@ -1041,4 +1041,99 @@ button:hover {
 img {
     max-width: 100%;
     height: auto;
+}
+
+
+
+/* Ensure the parent container takes full height */
+.row.g-4.g-lg-5 {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+/* Make the left form section scrollable */
+.contact-form {
+  height: 80vh;  /* Adjust based on your layout needs */
+  overflow-y: auto;  /* Enable vertical scrolling */
+  padding-right: 20px;  /* Optional: adds space between the form and the sticky contact box */
+}
+
+/* Make the right-side contact info sticky */
+.info-box {
+  position: sticky;
+  top: 20px;  /* Adjust as necessary for spacing */
+  height: fit-content; /* Ensures the box height adjusts with content */
+  z-index: 10;  /* Ensure it stays on top if there's overlapping */
+}
+
+/* Optional: Make sure the form and contact info have sufficient width */
+.col-lg-7 {
+  width: 60%;  /* Left form section */
+}
+
+.col-lg-5 {
+  width: 40%;  /* Right contact section */
+}
+
+/* Make sure the sticky part behaves well on smaller screens */
+@media (max-width: 768px) {
+  .col-lg-7, .col-lg-5 {
+    width: 100%;  /* Stack the form and contact box on small screens */
+  }
+
+  .contact-form {
+    height: auto;  /* Allow the form to grow on smaller screens */
+  }
+
+  .info-box {
+    position: static;  /* Remove sticky behavior on small screens */
+  }
+}
+
+
+
+
+#whatsapp-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none; /* Initially hidden */
+  justify-content: center;
+  align-items: center;
+}
+
+.whatsapp-popup-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.whatsapp-popup-content h2 {
+  margin-bottom: 10px;
+}
+
+.whatsapp-popup-content p {
+  margin-bottom: 15px;
+}
+
+.whatsapp-popup-content .whatsapp-link {
+  color: #25D366;
+  text-decoration: none;
+}
+
+.whatsapp-popup-content button {
+  background-color: #25D366;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.whatsapp-popup-content button:hover {
+  background-color: #128C7E;
 }

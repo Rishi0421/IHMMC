@@ -231,20 +231,52 @@ inputs.forEach(input=>{
 function updateTeamFields() {
   const numberOfMembers = document.getElementById('team-members').value;
   const teamMemberDetails = document.getElementById('team-member-details');
-  teamMemberDetails.innerHTML = '';
+  teamMemberDetails.innerHTML = ''; // Clear any existing fields
+
+  // Get Leader Information
+  const leaderName = document.getElementById('full-name').value;
+  const leaderPhone = document.getElementById('phone').value;
+  const leaderDept = document.getElementById('dept-name').value;
+  const leaderYear = document.getElementById('year').value;
 
   if (numberOfMembers) {
     for (let i = 0; i < numberOfMembers; i++) {
-      teamMemberDetails.innerHTML += `
-        <label for="member${i}-name">Member ${i + 1} Name:</label>
-        <input type="text" id="member${i}-name" name="team_members[${i}][name]" required>
+      if (i === 0) {
+        // Pre-fill the fields for Member 1
+        teamMemberDetails.innerHTML += `
+          <label for="member${i}-name">Member ${i + 1} Name:</label>
+          <input type="text" id="member${i}-name" name="team_members[${i}][name]" value="${leaderName}" required>
 
-        <label for="member${i}-email">Member ${i + 1} Email:</label>
-        <input type="email" id="member${i}-email" name="team_members[${i}][email]" required>
-      `;
+          <label for="member${i}-department">Member ${i + 1} Department:</label>
+          <input type="text" id="member${i}-department" name="team_members[${i}][department]" value="${leaderDept}" required>
+
+          <label for="member${i}-year">Member ${i + 1} Year:</label>
+          <input type="text" id="member${i}-year" name="team_members[${i}][year]" value="${leaderYear}" required>
+
+          <label for="member${i}-phone">Member ${i + 1} Phone Number:</label>
+          <input type="tel" id="member${i}-phone" name="team_members[${i}][phone]" pattern="\\d{10}" title="Phone number should be 10 digits" value="${leaderPhone}" required>
+        `;
+      } else {
+        // For other members, just show empty fields
+        teamMemberDetails.innerHTML += `
+          <label for="member${i}-name">Member ${i + 1} Name:</label>
+          <input type="text" id="member${i}-name" name="team_members[${i}][name]" required>
+
+          <label for="member${i}-department">Member ${i + 1} Department:</label>
+          <input type="text" id="member${i}-department" name="team_members[${i}][department]" required>
+
+          <label for="member${i}-year">Member ${i + 1} Year:</label>
+          <input type="text" id="member${i}-year" name="team_members[${i}][year]" required>
+
+          <label for="member${i}-phone">Member ${i + 1} Phone Number:</label>
+          <input type="tel" id="member${i}-phone" name="team_members[${i}][phone]" pattern="\\d{10}" title="Phone number should be 10 digits" required>
+        `;
+      }
     }
   }
 }
+
+
 
 document.getElementById('payment-method').addEventListener('change', function() {
   const upiDetails = document.getElementById('upi-details');
@@ -266,50 +298,174 @@ document.getElementById('payment-method').addEventListener('change', function() 
   }
 });
 
-const scriptURL = 'https://script.google.com/macros/s/AKfycby5L8uKSC6llNDa6LSH4Uj3vc3eKZs-5qDwsE63r3si7dsN5M26fx25FutBFCQV9yfW/exec'; // Add your Web App URL here google sheet
+// const scriptURL = 'https://script.google.com/macros/s/AKfycby5L8uKSC6llNDa6LSH4Uj3vc3eKZs-5qDwsE63r3si7dsN5M26fx25FutBFCQV9yfW/exec'; // Add your Web App URL here
+// const form = document.forms['google-sheet'];
+
+// // Reference to the WhatsApp popup
+// const whatsappPopup = document.getElementById('whatsapp-popup');
+// const closePopupButton = document.getElementById('close-popup');
+
+// // Close the popup when the close button is clicked
+// closePopupButton.addEventListener('click', function() {
+//     whatsappPopup.style.display = 'none';
+// });
+
+// form.addEventListener('submit', async e => {
+//   e.preventDefault();
+
+//   const formData = new FormData(form);
+//   const data = {};
+
+//   let teamMembersText = ''; // Initialize a variable to store the concatenated team member details
+
+//   formData.forEach((value, key) => {
+//       if (key.startsWith('team_members')) {
+//           // Extract the team member's index and field name
+//           const match = key.match(/team_members\[(\d+)\]\[(\w+)\]/);
+//           if (match) {
+//               const index = match[1];
+//               const field = match[2];
+
+//               // If the team members text is empty, just add the field name
+//               if (!data.team_members) {
+//                   data.team_members = [];
+//               }
+
+//               // Start formatting the data
+//               if (!data.team_members[index]) {
+//                   data.team_members[index] = {};
+//               }
+
+//               data.team_members[index][field] = value;
+
+//               // Concatenate the team member's details into the desired text format
+//               if (field === "name") {
+//                   teamMembersText += `name:${value}\n`; // Add the name
+//               }
+//               if (field === "department") {
+//                   teamMembersText += `department:${value}\n`; // Add the department
+//               }
+//               if (field === "year") {
+//                   teamMembersText += `year:${value}\n`; // Add the year
+//               }
+//               if (field === "phone") {
+//                   teamMembersText += `phone:${value}\n\n`; // Add the phone and a newline after each member
+//               }
+//           }
+//       } else {
+//           // For other fields, add them to the data object
+//           data[key] = value;
+//       }
+//   });
+
+//   // Add the formatted team members text to the data
+//   data.team_members = teamMembersText.trim(); // Remove any extra whitespace or newlines
+
+//   // Fetch the IP address
+//   const ipResponse = await fetch('https://api.ipify.org?format=json');
+//   const ipData = await ipResponse.json();
+//   data.ip_address = ipData.ip;
+
+//   // Submit form data to Google Sheets
+//   fetch(scriptURL, {
+//       method: 'POST',
+//       body: new URLSearchParams(data),
+//       headers: {
+//           'Content-Type': 'application/x-www-form-urlencoded'
+//       }
+//   })
+//   .then(response => {
+//       alert("Thanks for Contacting us..! We Will Contact You Soon...");
+      
+//       // Clear the form after successful submission
+//       form.reset();
+//   })
+//   .catch(error => {
+//       console.error('Error!', error.message);
+//   });
+// });
+
+
+
+const scriptURL = 'https://script.google.com/macros/s/AKfycby5L8uKSC6llNDa6LSH4Uj3vc3eKZs-5qDwsE63r3si7dsN5M26fx25FutBFCQV9yfW/exec'; // Add your Web App URL here
 const form = document.forms['google-sheet'];
 
-form.addEventListener('submit', async e => {
-e.preventDefault();
+// Reference to the WhatsApp popup
+const whatsappPopup = document.getElementById('whatsapp-popup');
+const closePopupButton = document.getElementById('close-popup');
 
-const formData = new FormData(form);
-const data = {};
-
-formData.forEach((value, key) => {
-  if (key.startsWith('team_members')) {
-    const match = key.match(/team_members\[(\d+)\]\[(\w+)\]/);
-    if (match) {
-      const index = match[1];
-      const field = match[2];
-      if (!data.team_members) {
-        data.team_members = [];
-      }
-      if (!data.team_members[index]) {
-        data.team_members[index] = {};
-      }
-      data.team_members[index][field] = value;
-    }
-  } else {
-    data[key] = value;
-  }
+// Close the popup when the close button is clicked
+closePopupButton.addEventListener('click', function() {
+    whatsappPopup.style.display = 'none'; // Hide the popup
 });
 
+form.addEventListener('submit', async e => {
+  e.preventDefault();
 
-data.team_members = JSON.stringify(data.team_members);
-data.number_of_team_members = JSON.parse(data.team_members).length;
-// Fetch the IP address
-const ipResponse = await fetch('https://api.ipify.org?format=json');
-const ipData = await ipResponse.json();
-data.ip_address = ipData.ip;
+  const formData = new FormData(form);
+  const data = {};
 
-fetch(scriptURL, {
-  method: 'POST',
-  body: new URLSearchParams(data),
-  headers: {
-    'Content-Type': 'application/x-www-form-urlencoded'
-  }
-})
-.then(response => response.json())
-.then(response => alert("Thanks for Contacting us..! We Will Contact You Soon..."))
-.catch(error => console.error('Error!', error.message));
+  let teamMembersText = ''; // Initialize a variable to store the concatenated team member details
+
+  formData.forEach((value, key) => {
+      if (key.startsWith('team_members')) {
+          const match = key.match(/team_members\[(\d+)\]\[(\w+)\]/);
+          if (match) {
+              const index = match[1];
+              const field = match[2];
+
+              if (!data.team_members) {
+                  data.team_members = [];
+              }
+
+              if (!data.team_members[index]) {
+                  data.team_members[index] = {};
+              }
+
+              data.team_members[index][field] = value;
+
+              if (field === "name") {
+                  teamMembersText += `name:${value}\n`; 
+              }
+              if (field === "department") {
+                  teamMembersText += `department:${value}\n`; 
+              }
+              if (field === "year") {
+                  teamMembersText += `year:${value}\n`; 
+              }
+              if (field === "phone") {
+                  teamMembersText += `phone:${value}\n\n`; 
+              }
+          }
+      } else {
+          data[key] = value;
+      }
+  });
+
+  data.team_members = teamMembersText.trim();
+
+  const ipResponse = await fetch('https://api.ipify.org?format=json');
+  const ipData = await ipResponse.json();
+  data.ip_address = ipData.ip;
+
+  fetch(scriptURL, {
+      method: 'POST',
+      body: new URLSearchParams(data),
+      headers: {
+          'Content-Type': 'application/x-www-form-urlencoded'
+      }
+  })
+  .then(response => {
+      alert("Thanks for Contacting us..! We Will Contact You Soon...");
+      
+      // Clear the form after successful submission
+      form.reset();
+
+      // Show the WhatsApp popup
+      whatsappPopup.style.display = 'block'; // Show the popup
+
+  })
+  .catch(error => {
+      console.error('Error!', error.message);
+  });
 });
